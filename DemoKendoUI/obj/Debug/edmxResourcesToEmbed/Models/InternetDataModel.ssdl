@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InternetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Internet.dbo.District' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="District">
+          <Property Name="ID" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="LocationID" Type="smallint" />
+          <Property Name="Division" Type="int" />
+          <Property Name="DivisionID" Type="int" />
+          <Property Name="FullNameVN" Type="nvarchar" MaxLength="100" />
+          <Property Name="NameVN" Type="nvarchar" MaxLength="200" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Internet.dbo.Location' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Location">
+          <Property Name="ID" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Parent" Type="varchar" MaxLength="5" />
+          <Property Name="Code" Type="varchar" MaxLength="5" />
+          <Property Name="SubParent" Type="varchar" MaxLength="10" />
+          <Property Name="SubParentDesc" Type="varchar" MaxLength="100" />
+          <Property Name="RegionID" Type="int" />
+          <Property Name="DescriptionVN" Type="nvarchar" MaxLength="100" />
+          <Property Name="SubParentDescVN" Type="nvarchar" MaxLength="100" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Internet.dbo.Ward' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Ward">
+          <Property Name="ID" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="DistrictID" Type="int" />
+          <Property Name="NameVN" Type="nvarchar" MaxLength="100" />
+          <Property Name="DivisionWard" Type="int" />
+        </EntityType>-->
+  <EntityContainer Name="InternetModelStoreContainer" />
+</Schema>

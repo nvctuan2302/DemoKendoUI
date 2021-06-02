@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2021.2.511/styles/kendo.default-v2.min.css" />
+
+    <script src="https://kendo.cdn.telerik.com/2021.2.511/js/jquery.min.js"></script>
+
+
+    <script src="https://kendo.cdn.telerik.com/2021.2.511/js/kendo.all.min.js"></script>
+
+
+
+</head>
+
+<body>
+    <input id="pSubParentDesc">
+    <input id="pCity" >
+    <input id="pDistrict">
+
+    <script>
+        var pSubParentDesc = $('#pSubParentDesc').kendoDropDownList({
+            optionLabel: "Chọn vùng ...",
+            dataTextField: 'SubParentDescVN',
+            dataValueField: 'SubParentDesc',
+            dataSource: {
+                transport: {
+                    read: {
+                        url: '/Home/GetSubParentDesc'
+                    }
+                }
+            },
+        }).data("kendoDropDownList");
+
+
+        
+
+        var pCity = $('#pCity').kendoDropDownList({
+            cascadeFrom: "pSubParentDesc", // id
+            optionLabel: "Chọn thành phố ...",
+            dataTextField: 'DescriptionVN',
+            dataValueField: 'ID',
+            dataSource: {
+                transport: {
+                    read: {
+                        url: '/Home/GetCity' 
+                    }
+                }
+            },
+            change: function () {
+                   console.log('giá trị: ' + this.value()) 
+                   console.log('text: ' + this.text())
+                   console.log($("#pSubParentDesc").data("kendoDropDownList").value())
+                   console.log(pSubParentDesc.value())
+                   
+
+            }
+        }).data("kendoDropDownList");
+
+        var pDistrict = $('#pDistrict').kendoDropDownList({
+            cascadeFrom: "pCity", // id
+            cascadeFromField: "LocationID",
+            optionLabel: "Chọn Quận ...",
+            dataTextField: 'FullNameVN',
+            dataValueField: 'ID',
+            dataSource: {
+                transport: {
+                    read: {
+                        url: '/Home/GetDistrict'
+                    }
+                }
+            },
+            change: function () {
+                console.log('giá trị' + this.value()) 
+                console.log('text '+ this.text())
+            }
+        }).data("kendoDropDownList");
+
+
+    </script>
+</body>
+
+</html>
